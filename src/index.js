@@ -1,0 +1,5 @@
+require('./less/main.less');
+
+$(() => {
+
+});
