@@ -6,7 +6,12 @@
     "dev": "./node_modules/.bin/webpack-dev-server --config 'build/webpack.dev.conf.js'",
     "build": "rm -rf ./dist && ./node_modules/.bin/webpack --config 'build/webpack.prod.conf.js'"
   },
-  "keywords": ["webpack", "frontend", "js", "css"],
+  "keywords": [
+    "webpack",
+    "frontend",
+    "js",
+    "css"
+  ],
   "author": "Sy170107",
   "license": "MIT",
   "dependencies": {
@@ -36,7 +41,8 @@
     "less-loader": "^4.0.5",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "postcss-loader": "^2.0.10",
-    "style-loader": "^0.19.1"
+    "style-loader": "^0.19.1",
+    "uglifyjs-webpack-plugin": "^1.1.6"
   },
   "browserslist": [
     "> 1%",
