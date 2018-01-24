@@ -2,11 +2,17 @@
 
 process.env.NODE_ENV = 'production';
 
+const path = require('path');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 let config = require('./webpack.base.conf');
+
+config.plugins.unshift(new CleanWebpackPlugin(['dist'], {
+  root: path.join(__dirname, '..'),
+}));
 
 config = Merge(config, {
   plugins: [

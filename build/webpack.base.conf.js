@@ -91,6 +91,12 @@ let config = {
       // (with more entries, this ensures that no other module
       //  goes into the vendor chunk)
     }),
+    // extract webpack runtime and module manifest to its own file in order to
+    // prevent vendor hash from being updated whenever app bundle is updated
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
+    }),
     new ExtractTextPlugin({
       filename: dev ? 'css/f6.css' : 'css/f6.[contenthash].css',
     }), // https://webpack.js.org/plugins/extract-text-webpack-plugin/#usage
