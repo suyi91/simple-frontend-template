@@ -4,7 +4,7 @@
 
 ## 更新日志
 
-2018-04-30 升级支持Webpack4✨ 添加SCSS支持
+2018-04-30 升级支持Webpack4✨ 添加SCSS支持
 
 ## 支持功能
 
@@ -22,13 +22,13 @@
 
 1. 解压zip包
 1. cd进目录
-1. `npm i`安装node依赖(太慢可以配置[淘宝镜像][npm_taobao])
+1. `npm i`安装node依赖(太慢可以配置[淘宝镜像][npm_taobao])
 1. 本地开发`npm run dev` / 编译生产`npm run build`
 1. 如果只需要js和css，删除webpack config中的[HtmlWebpackPlugin][html_webpack_plugin]
 
 ## 工程介绍
 
-工程结构如下
+工程结构如下
 
 ```bash
 .
