@@ -11,7 +11,7 @@
 1. 模块化
 1. ES6+([Babel][babel]转义)
 1. [ESLint][eslint]
-1. CSS/[LESS][less]([STYLUS][stylus]或者[SCSS][scss]可以再做配置)
+1. CSS/[LESS][less]/[SCSS][scss]
 1. [PostCSS][postcss]/[Autoprefixer][autoprefixer]
 1. 本地开发支持[Hot Module Replacement(HMR)][hmr]，并发布到本地
 1. 编译生产支持[js压缩][uglifyjs]并生成sourceMap和css压缩，在`dist/`文件夹生成编译文件
