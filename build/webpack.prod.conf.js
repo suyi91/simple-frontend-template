@@ -15,17 +15,12 @@ config.plugins.unshift(new CleanWebpackPlugin(['dist'], {
 }));
 
 config = Merge(config, {
+  mode: 'production',
+  optimization: {
+    minimize: true
+  },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false
-        }
-      },
-      sourceMap: true,
-      parallel: true
-    }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({

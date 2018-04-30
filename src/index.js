@@ -1,4 +1,4 @@
-require('./less/main.less');
+import './less/main.less';
 
 $(() => {
 

@@ -8,6 +8,7 @@ const Merge = require('webpack-merge');
 let config = require('./webpack.base.conf');
 
 config = Merge(config, {
+  mode: 'development',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
