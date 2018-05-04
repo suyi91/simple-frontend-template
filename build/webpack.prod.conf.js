@@ -2,6 +2,8 @@
 
 process.env.NODE_ENV = 'production';
 
+const bundleAnalyzerReport = process.env.NPM_CONFIG_REPORT;
+
 const path = require('path');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
@@ -30,5 +32,10 @@ config = Merge(config, {
     }),
   ],
 });
+
+if (bundleAnalyzerReport) {
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  config.plugins.push(new BundleAnalyzerPlugin());
+}
 
 module.exports = config;

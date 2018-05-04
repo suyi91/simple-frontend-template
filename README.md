@@ -4,7 +4,8 @@
 
 ## 更新日志
 
-2018-04-30 升级支持Webpack4✨ 添加SCSS支持
+- 2018-05-04 加入cross-env进行运行参数兼容 加入webpack-bundle-analyzer进行包内容分析
+- 2018-04-30 升级支持Webpack4✨ 添加SCSS支持
 
 ## 支持功能
 
