@@ -4,6 +4,7 @@
 
 ## 更新日志
 
+- 2018-05-16 加入多页应用的支持
 - 2018-05-04 加入cross-env进行运行参数兼容 加入webpack-bundle-analyzer进行包内容分析
 - 2018-04-30 升级支持Webpack4✨ 添加SCSS支持
 
@@ -18,6 +19,7 @@
 1. 编译生产支持[js压缩][uglifyjs]并生成sourceMap和css压缩，在`dist/`文件夹生成编译文件
 1. CDN配置(设置webpack config文件中的`output.publicPath`)
 1. 多页应用配置(设置webpack config文件中的`entry`。页面设置webpack config文件中添加[HtmlWebpackPlugin][html_webpack_plugin])
+1. 多页使用方式 src/entry目录下面创建每一个页面的目录入口为`index.js`和`index.html`
 
 ## 如何使用
 

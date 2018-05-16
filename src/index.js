@@ -1,5 +1,0 @@
-import './less/main.less';
-
-$(() => {
-
-});
