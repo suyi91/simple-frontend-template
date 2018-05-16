@@ -6,14 +6,30 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const glob = require('glob');
+const utils = require('./util');
 
 const dev = process.env.NODE_ENV === 'development';
 
+const entryPaths = glob.sync(path.resolve('./src/entries/', '*/index.js'));
+const entrySettings = utils.getEntries(entryPaths);
+
+const entry = {};
+entrySettings.forEach(v => {
+  entry[v.name] = v.path;
+})
+
+const getHtmlPlugin = setting => new HtmlWebpackPlugin({
+  template: setting.template,
+  filename: setting.name + '.html',
+  inject: true,
+  chunks: 'all',
+  excludeChunks: entrySettings.filter(i => i.name !== setting.name).map(i => i.name),
+  chunksSortMode: 'dependency',
+});
+
 let config = {
-  entry: {
-    // https://webpack.js.org/concepts/entry-points/#multi-page-application
-    app: './src/index.js',
-  },
+  entry,
   output: {
     // https://webpack.js.org/concepts/output/#multiple-entry-points
     path: path.resolve(__dirname, '../dist'),
@@ -86,10 +102,6 @@ let config = {
       filename: dev ? 'css/[name].css' : 'css/[name].[hash:8].css',
       chunkFilename: dev ? 'css/[id].css' : 'css/[id].[hash].css',
     }),
-    new HtmlWebpackPlugin({  // Also generate a index.html
-      template: './src/index.html',
-      inject: true,
-    }),
     new FriendlyErrorsWebpackPlugin(),
   ],
   optimization: {
@@ -119,5 +131,9 @@ let config = {
     },
   }
 };
+
+entrySettings.forEach(v => {
+  config.plugins.push(getHtmlPlugin(v));
+})
 
 module.exports = config;

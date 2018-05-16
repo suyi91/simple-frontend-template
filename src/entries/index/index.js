@@ -1,0 +1,5 @@
+import '../../less/main.less';
+
+$(() => {
+
+});
